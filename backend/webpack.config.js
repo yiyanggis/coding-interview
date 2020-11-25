@@ -4,6 +4,12 @@ const nodeExternals = require('webpack-node-externals')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 
 module.exports = {
+	mode: 'development',
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        port: 8080,
+        host: `localhost`,
+    },
 	entry: {
 	    server: './app.js',
 	  },
