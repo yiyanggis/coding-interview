@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import TopNav from "./nav"
 
 class Form extends Component {
   constructor() {
@@ -23,14 +24,17 @@ class Form extends Component {
 
   render() {
     return (
-      <form>
-        <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-        <p value={this.state.value}>{this.state.value}</p>
-      </form>
+      <div>
+          <TopNav/>
+          <form>
+            <input
+              type="text"
+              value={this.state.value}
+              onChange={this.handleChange}
+            />
+            <p value={this.state.value}>{this.state.value}</p>
+          </form>
+      </div>
     );
   }
 }
