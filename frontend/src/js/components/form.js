@@ -6,7 +6,8 @@ class Form extends Component {
     super();
 
     this.state = {
-      value: ""
+      value: "",
+      question: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,9 +22,29 @@ class Form extends Component {
     });
   }
 
+  componentDidMount() {
+    fetch("http://localhost:3000/code/question/1")
+    .then(res => res.json())
+    .then((data)=>{
+      if(data.error){
+        this.setState({
+          question:data.question
+        })
+      }
+      else{
+        this.setState({
+          question:data.question
+        })
+      }
+      
+    })
+  }
+
   render() {
     return (
       <form>
+        <p>question: </p>
+        <p>{this.state.question}</p>
         <input
           type="text"
           value={this.state.value}
